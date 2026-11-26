@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Outfit:wght@500;600;700&family=Great+Vibes&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-serif: "Bodoni Moda", Georgia, serif;
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-soft: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-script: "Great Vibes", "Snell Roundhand", "Brush Script MT", "Segoe Script", cursive;
+
+  --color-paper: #FFFFFF;
+  --color-ink: #111111;
+  --color-gold: #E7D4B5; /* Champagne Gold for dark surfaces & borders */
+  --color-gold-text: #8A6B2F; /* Accessible Deep Gold for text on light backgrounds */
+  --color-burgundy: #600010;
+  --color-cream: #FAF8F5;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased text-base leading-relaxed overflow-x-hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight leading-tight;
+    text-wrap: balance;
+  }
+
+  p {
+    @apply font-sans leading-relaxed;
+  }
+}
+
+.editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+.magazine-page {
+  @apply min-h-[calc(100vh-5rem)] pt-10 pb-16 sm:pt-14 sm:pb-24 px-4 sm:px-8 lg:px-16 relative flex flex-col max-w-6xl mx-auto w-full;
+}
